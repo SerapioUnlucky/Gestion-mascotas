@@ -18,9 +18,10 @@ export const ListadoPacientes = () => {
         if (pacientes) {
 
             setPacientes(pacientes);
-            setLoading(false);
 
         }
+
+        setLoading(false);
 
     }
 
@@ -48,7 +49,7 @@ export const ListadoPacientes = () => {
 
             {loading ? <p className="text-center font-bold mb-3 text-gray-700 uppercase">Cargando...</p> :
 
-                pacientes.length === 0 ? <p className="text-center font-bold mb-3 text-gray-700 uppercase">No hay pacientes registrados</p> :
+                !pacientes || pacientes.length === 0 ? <p className="text-center font-bold mb-3 text-gray-700 uppercase">No hay pacientes registrados</p> :
 
                     pacientes.map((paciente, index) => (
 
